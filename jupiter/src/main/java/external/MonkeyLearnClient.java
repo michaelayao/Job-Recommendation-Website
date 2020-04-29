@@ -36,6 +36,7 @@ public class MonkeyLearnClient {
 		// Use the keyword extractor
 		ExtraParam[] extraParams = { new ExtraParam("max_keywords", "3") };
 		MonkeyLearnResponse response;
+		// Might have Internet connection error 
 		try {
 			response = ml.extractors.extract("ex_YCya9nrn", text, extraParams);
 			JSONArray resultArray = response.arrayResult;
@@ -57,7 +58,7 @@ public class MonkeyLearnClient {
 			for (int j = 0; j < keywordsArray.size(); ++j) {
 				JSONObject keywordObject = (JSONObject) keywordsArray.get(j);
 				// We just need the keyword, excluding other fields.
-				//Java API use "keyword", RESTFUL API use "parse_value"
+				// Java API use "keyword", RESTFUL API use "parse_value"
 				String keyword = (String) keywordObject.get("keyword");
 				keywords.add(keyword);
 
