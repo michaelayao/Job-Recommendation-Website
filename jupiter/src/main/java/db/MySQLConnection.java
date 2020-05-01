@@ -42,6 +42,7 @@ public class MySQLConnection {
 			System.err.println("DB connection failed");
 			return;
 		}
+		//why do we need to save item here. already exist in the database
 		saveItem(item);
 		String sql = "INSERT INTO history (user_id, item_id) VALUES (?, ?)";
 		try {
